@@ -1,0 +1,13 @@
+:root {
+  /* Typography */
+  --font-family: 'Poppins', sans-serif;
+  --font-size-s: 16px;
+  --font-size-m: 20px;
+  --font-size-l: 32px;
+
+  /* Color palette */
+  --color-palette-black: #101010;
+
+  /* Semantic colors */
+  --color-title: var(--color-palette-black);
+}
