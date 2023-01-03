@@ -10,19 +10,33 @@
     <h1>Hello world</h1>
     <div id="app"></div>
 
-    <template id="test-template">
+    <test-component></test-component>
+
+    <!-- <template id="test-template">
       <h2>Some template!</h2>
-    </template>
+    </template> -->
 
     <script>
-      const template = document.getElementById('test-template');
-      const app = document.getElementById('app');
-      // .content is a document fragmentm not an html element!
-      const clone = template.content.firstElementChild.cloneNode(true);
-      clone.addEventListener('click', () => {
-        alert('Clicked the clone!');
-      });
-      app.appendChild(clone);
+      class TestComponent extends HTMLElement {
+        constructor() {
+          super();
+          const shadow = this.attachShadow({ mode: 'open' });
+          const element = document.createElement('h2');
+          element.textContent = 'This is a test.';
+          shadow.appendChild(element);
+        }
+      }
+
+      customElements.define('test-component', TestComponent);
+
+      // const template = document.getElementById('test-template');
+      // const app = document.getElementById('app');
+      // // .content is a document fragmentm not an html element!
+      // const clone = template.content.firstElementChild.cloneNode(true);
+      // clone.addEventListener('click', () => {
+      //   alert('Clicked the clone!');
+      // });
+      // app.appendChild(clone);
     </script>
   </body>
 </html>
