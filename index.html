@@ -8,5 +8,17 @@
   </head>
   <body>
     <h1>Hello world</h1>
+    <div id="app"></div>
+
+    <template id="test-template">
+      <h2>Some template!</h2>
+    </template>
+
+    <script>
+      const template = document.getElementById('test-template');
+      const app = document.getElementById('app');
+      const clone = template.content.cloneNode(true);
+      app.appendChild(clone);
+    </script>
   </body>
 </html>
