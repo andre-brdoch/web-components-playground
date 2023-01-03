@@ -17,7 +17,11 @@
     <script>
       const template = document.getElementById('test-template');
       const app = document.getElementById('app');
-      const clone = template.content.cloneNode(true);
+      // .content is a document fragmentm not an html element!
+      const clone = template.content.firstElementChild.cloneNode(true);
+      clone.addEventListener('click', () => {
+        alert('Clicked the clone!');
+      });
       app.appendChild(clone);
     </script>
   </body>
