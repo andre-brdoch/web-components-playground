@@ -33,7 +33,7 @@ export class AccordionItem extends HTMLElement {
     if (contentSlot) {
       contentCtnEl.appendChild(contentSlot);
     } else {
-      contentEl.textContent = title;
+      contentEl.textContent = content;
       contentCtnEl.appendChild(contentEl);
     }
     contentEl.classList.add('content');
@@ -46,7 +46,7 @@ export class AccordionItem extends HTMLElement {
 
   getStyle() {
     const style = document.createElement('style');
-    style.innerText = `
+    style.innerHTML = `
         .trigger {
             appearance: none;
             display: block;

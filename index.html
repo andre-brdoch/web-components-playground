@@ -11,37 +11,9 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet" />
     <link rel="stylesheet" href="theme.css" />
-    <style>
-      .app-title {
-        font-family: var(--font-family);
-        font-size: var(--font-size-m);
-        color: var(--color-danger);
-        margin: 0;
-      }
-      .app-text {
-        font-family: var(--font-family);
-        font-size: var(--font-size-s);
-        color: var(--color-danger);
-        margin: 0;
-      }
-    </style>
   </head>
   <body>
-    <div id="app"></div>
-
-    <accordion-item
-      title="Attribute title"
-      content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde beatae aliquid maxime illum iste officia voluptas quia officiis maiores sint molestias non fugit iusto ullam ea nihil, at aperiam necessitatibus!">
-    </accordion-item>
-    <accordion-item title="Overwritten title" content="Overwritten content">
-      <h2 slot="title" class="app-title">Slot title</h2>
-      <p slot="content" class="app-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde beatae
-        aliquid maxime illum iste officia voluptas quia officiis maiores sint
-        molestias non fugit iusto ullam ea nihil, at aperiam necessitatibus!
-      </p>
-    </accordion-item>
-
+    <app-component></app-component>
     <script src="./register.js" type="module"></script>
   </body>
 </html>
