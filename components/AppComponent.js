@@ -12,26 +12,18 @@ export class AppComponent extends HTMLElement {
   render() {
     const element = document.createElement('main');
     const item1 = document.createElement('accordion-item');
-    item1.setAttribute('title', 'Via attributes');
-    item1.setAttribute(
-      'content',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
-    );
-    element.appendChild(item1);
 
-    const itemWithSlots = item1.cloneNode(true);
-    const titleSlot = document.createElement('h3');
-    titleSlot.classList.add('title');
-    titleSlot.setAttribute('slot', 'title');
-    titleSlot.innerText = 'Created via slot';
-    const textSlot = document.createElement('p');
-    textSlot.classList.add('text');
-    textSlot.setAttribute('slot', 'content');
-    textSlot.innerText = 'Some content created via slot';
-    itemWithSlots.appendChild(titleSlot);
-    itemWithSlots.appendChild(textSlot);
+    element.innerHTML = `
+    <div>
+      <accordion-item title="Via attributes" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"></accordion-item>
 
-    element.appendChild(itemWithSlots);
+      <accordion-item>
+        <h3 slot="title">Created via slot</h3>
+        <p slot="content">Some content created via slot</p>
+      </accordion-item>
+    </div>
+    `;
+
     return element;
   }
 
