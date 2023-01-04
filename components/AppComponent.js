@@ -14,7 +14,7 @@ export class AppComponent extends HTMLElement {
     const item1 = document.createElement('accordion-item');
 
     element.innerHTML = `
-    <div>
+    <div class="container">
       <accordion-item title="Via attributes" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"></accordion-item>
 
       <accordion-item>
@@ -30,6 +30,10 @@ export class AppComponent extends HTMLElement {
   getStyle() {
     const style = document.createElement('style');
     style.innerHTML = `
+        .container {
+          max-width: 40rem;
+        }
+
         ::part(title) {
             font-family: var(--font-family);
             font-size: var(--font-size-m);
