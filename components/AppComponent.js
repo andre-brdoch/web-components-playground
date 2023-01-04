@@ -31,7 +31,7 @@ export class AppComponent extends HTMLElement {
     const style = document.createElement('style');
     style.innerHTML = `
         .container {
-          max-width: 40rem;
+          max-width: 30rem;
         }
 
         ::part(title) {

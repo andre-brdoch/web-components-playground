@@ -12,4 +12,9 @@
   /* Semantic colors */
   --color-title: var(--color-palette-black);
   --color-danger: var(--color-palette-red);
+
+  /* Animation */
+  --anim-duration-fast: 0.1s;
+  --anim-duration-medium: 0.25s;
+  --anim-duration-slow: 0.5s;
 }

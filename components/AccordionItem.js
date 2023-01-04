@@ -16,6 +16,7 @@ export class AccordionItem extends HTMLElement {
     const buttonEl = document.createElement('button');
     const titleEl = document.createElement('h2');
     const contentCtnEl = document.createElement('div');
+    const contentInnerCtnEl = document.createElement('div');
     const contentEl = document.createElement('p');
 
     buttonEl.classList.add('trigger');
@@ -39,14 +40,16 @@ export class AccordionItem extends HTMLElement {
     titleEl.classList.add('title');
 
     contentCtnEl.classList.add('content-ctn');
+    contentInnerCtnEl.classList.add('inner-content-ctn');
+    contentCtnEl.appendChild(contentInnerCtnEl);
 
     const content = this.getAttribute('content');
     const contentSlot = this.querySelector('[slot="content"');
     if (contentSlot) {
-      contentCtnEl.appendChild(contentSlot);
+      contentInnerCtnEl.appendChild(contentSlot);
     } else {
       contentEl.textContent = content;
-      contentCtnEl.appendChild(contentEl);
+      contentInnerCtnEl.appendChild(contentEl);
     }
     contentEl.classList.add('content');
 
@@ -71,10 +74,20 @@ export class AccordionItem extends HTMLElement {
         }
 
         .content-ctn {
-            display: none;
+            display: grid;
+            transition: grid-template-rows var(--anim-duration-medium), opacity var(--anim-duration-slow);
+            transition-timing-function: ease-out;
+            overflow: hidden;
+            grid-template-rows: 0fr;
+            opacity: 0;
         }
         .open .content-ctn {
-            display: block;
+            grid-template-rows: 1fr;
+            opacity: 1;
+        }
+
+        .inner-content-ctn {
+            min-height: 0;
         }
         
         .title,
