@@ -11,18 +11,27 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet" />
     <link rel="stylesheet" href="theme.css" />
+    <style>
+      .text {
+        font-family: var(--font-family);
+        font-size: var(--font-size-m);
+        color: var(--color-title);
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
 
-    <accordion-item></accordion-item>
+    <accordion-item>
+      <span slot="title-fragment">Hello world</span>
+      <p slot="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde beatae
+        aliquid maxime illum iste officia voluptas quia officiis maiores sint
+        molestias non fugit iusto ullam ea nihil, at aperiam necessitatibus!
+      </p>
+    </accordion-item>
 
-    <script src="./loader.js"></script>
-    <script>
-      // todo: set up to automatically load all components
-      loadComponent('components/AccordionItem.html').then((component) => {
-        console.log(component);
-      });
-    </script>
+    <script src="./register.js" type="module"></script>
   </body>
 </html>

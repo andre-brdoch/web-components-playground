@@ -1,9 +1,42 @@
 <template>
-  <h2 class="title">hello from web component</h2>
+  <article>
+    <button class="trigger" type="button">
+      <h2 class="title">
+        <slot name="title-fragment"></slot>
+      </h2>
+    </button>
+
+    <div class="content">
+      <slot name="content"></slot>
+    </div>
+  </article>
 </template>
 
 <style>
+  .trigger {
+    appearance: none;
+    display: block;
+    border: none;
+    padding: 0;
+    background: transparent;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .title,
+  .text {
+    font-family: var(--font-family);
+    margin: 0;
+  }
+
   .title {
-    color: red;
+    font-size: var(--font-size-l);
+    color: var(--color-title);
+  }
+
+  .text {
+    font-size: var(--font-size-m);
+    color: var(--color-title);
   }
 </style>
