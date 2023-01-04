@@ -7,7 +7,9 @@
 
   /* Color palette */
   --color-palette-black: #101010;
+  --color-palette-red: #cb3434e9;
 
   /* Semantic colors */
   --color-title: var(--color-palette-black);
+  --color-danger: var(--color-palette-red);
 }

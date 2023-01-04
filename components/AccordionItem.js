@@ -1,28 +1,47 @@
 export class AccordionItem extends HTMLElement {
   constructor() {
     super();
+
     const shadow = this.attachShadow({ mode: 'open' });
-    const element = document.createElement('article');
-    const button = document.createElement('button');
-    const title = document.createElement('h2');
-    const textCtn = document.createElement('div');
-    const text = document.createElement('p');
-
-    button.classList.add('trigger');
-    element.appendChild(button);
-    element.appendChild(textCtn);
-
-    title.textContent = 'This is a test.';
-    title.classList.add('title');
-    button.appendChild(title);
-
-    text.textContent = 'Some text';
-    text.classList.add('text');
-    textCtn.appendChild(text);
-
-    shadow.appendChild(element);
+    const element = this.render();
     const style = this.getStyle();
+    shadow.appendChild(element);
     shadow.appendChild(style);
+  }
+
+  render() {
+    const element = document.createElement('article');
+    const buttonEl = document.createElement('button');
+    const titleEl = document.createElement('h2');
+    const contentCtnEl = document.createElement('div');
+    const contentEl = document.createElement('p');
+
+    buttonEl.classList.add('trigger');
+
+    const title = this.getAttribute('title');
+    const titleSlot = this.querySelector('[slot="title"');
+    if (titleSlot) {
+      buttonEl.appendChild(titleSlot);
+    } else {
+      titleEl.innerText = title;
+      buttonEl.appendChild(titleEl);
+    }
+    titleEl.classList.add('title');
+
+    const content = this.getAttribute('content');
+    const contentSlot = this.querySelector('[slot="content"');
+    if (contentSlot) {
+      contentCtnEl.appendChild(contentSlot);
+    } else {
+      contentEl.textContent = title;
+      contentCtnEl.appendChild(contentEl);
+    }
+    contentEl.classList.add('content');
+
+    element.appendChild(buttonEl);
+    element.appendChild(contentCtnEl);
+
+    return element;
   }
 
   getStyle() {
@@ -40,7 +59,7 @@ export class AccordionItem extends HTMLElement {
         }
         
         .title,
-        .text {
+        .content {
             font-family: var(--font-family);
             margin: 0;
         }
@@ -50,7 +69,7 @@ export class AccordionItem extends HTMLElement {
             color: var(--color-title);
         }
         
-        .text {
+        .content {
             font-size: var(--font-size-m);
             color: var(--color-title);
         }
