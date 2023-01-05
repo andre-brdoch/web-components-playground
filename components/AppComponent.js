@@ -11,8 +11,8 @@ export class AppComponent extends Component {
   <accordion-item data-title="Via attributes" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"></accordion-item>
 
   <accordion-item>
-    <h3 slot="title" part="title" class="App_title">Created via <i>slot</i></h3>
-    <p slot="content" part="content" class="App_text">Some content <b>created via slot</b></p>
+    <h3 slot="title" class="title">Created via <i>slot</i></h3>
+    <p slot="content" class="text">Some content <b>created via slot</b></p>
   </accordion-item>
 </div>
     `;
@@ -24,7 +24,7 @@ export class AppComponent extends Component {
   max-width: 30rem;
 }
 
-::part(title) {
+.text {
     font-family: var(--font-family);
     font-size: var(--font-size-m);
     font-weight: normal;
@@ -32,7 +32,7 @@ export class AppComponent extends Component {
     margin: 0;
 }
 
-::part(content) {
+.title {
     font-family: var(--font-family);
     font-size: var(--font-size-s);
     color: var(--color-danger);
