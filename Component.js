@@ -34,6 +34,17 @@ export class Component extends HTMLElement {
     return '';
   }
 
+  /** Returns the filled slot contents */
+  getSlots() {
+    return [...this.querySelectorAll('[slot]')].reduce(
+      (result, node) => ({
+        ...result,
+        [node.getAttribute('slot')]: node,
+      }),
+      {}
+    );
+  }
+
   /** Converts `data-` attributes to props */
   _getPropsFromAttributes() {
     return [...this.attributes].reduce((result, attr) => {
