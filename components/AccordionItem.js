@@ -24,16 +24,21 @@ export class AccordionItem extends Component {
   }
 
   template({ title, content }) {
+    const hasIcon = !!this.getSlots().icon;
     return `
-<article>
+<article ${hasIcon ? 'class="has-icon"' : ''}>
   <button aria-controls="content" aria-expanded="false" class="trigger">
+    <slot name="icon"></slot>
+  
     <slot name="title">
       <h2 class="title">${title}</h2>
     </slot>
+
     <div class="chevron">
       <icon-chevron></icon-chevton>
     </div>
   </button>
+
   <div class="content-ctn">
     <div id="content" class="inner-content-ctn">
       <slot name="content">
@@ -56,9 +61,14 @@ export class AccordionItem extends Component {
     text-align: left;
 
     display: grid;
-    grid-template-columns: 1fr 3rem;
+    grid-template-columns: 1fr 2rem;
+    gap: 1rem;
     align-items: center;
     cursor: pointer;
+}
+
+.has-icon .trigger {
+    grid-template-columns: 2rem 1fr 2rem;
 }
 
 .content-ctn {
@@ -69,6 +79,7 @@ export class AccordionItem extends Component {
     grid-template-rows: 0fr;
     opacity: 0;
 }
+
 .open .content-ctn {
     grid-template-rows: 1fr;
     opacity: 1;
@@ -76,6 +87,10 @@ export class AccordionItem extends Component {
 
 .inner-content-ctn {
     min-height: 0;
+  }
+  
+.has-icon .inner-content-ctn {
+    padding-left: 3rem;
 }
 
 .chevron {
@@ -83,6 +98,7 @@ export class AccordionItem extends Component {
     transition: all var(--anim-duration-medium) ease-out;
     transition-property: fill, transform;
 }
+
 .open .chevron {
     color: var(--color-action);
     transform: rotate(180deg);
@@ -96,12 +112,12 @@ export class AccordionItem extends Component {
 }
 
 .title {
-    font-size: var(--font-size-l);
+    font-size: var(--font-size-m);
     color: var(--color-title);
 }
 
 .content {
-    font-size: var(--font-size-m);
+    font-size: var(--font-size-s);
     color: var(--color-text);
 }
 `;

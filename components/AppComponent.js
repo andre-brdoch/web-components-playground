@@ -8,12 +8,17 @@ export class AppComponent extends Component {
   template() {
     return `
 <div class="container">
-  <accordion-item data-title="Via attributes" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"></accordion-item>
+  <accordion-item data-title="Via attributes" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua">
+    <icon-sub-directory slot="icon"></icon-sub-directory>
+  </accordion-item>
 
   <accordion-item>
+    <icon-code slot="icon"></icon-code>
     <h3 slot="title" class="title">Created via <i>slot</i></h3>
     <p slot="content" class="text">Some content <b>created via slot</b></p>
   </accordion-item>
+
+  <accordion-item data-title="No icon" data-content="Icon can also be left out."></accordion-item>
 </div>
     `;
   }
