@@ -28,9 +28,9 @@ export class AccordionItem extends Component {
     <slot name="title">
       <h2 class="title">${title}</h2>
     </slot>
-    <svg class="chevron" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z"></path>
-    </svg>
+    <div class="chevron">
+      <icon-chevron></icon-chevton>
+    </div>
   </button>
   <div class="content-ctn">
     <div class="inner-content-ctn">
@@ -77,12 +77,12 @@ export class AccordionItem extends Component {
 }
 
 .chevron {
-    fill: var(--color-title);
+    color: var(--color-title);
     transition: all var(--anim-duration-medium) ease-out;
     transition-property: fill, transform;
 }
 .open .chevron {
-    fill: var(--color-action);
+    color: var(--color-action);
     transform: rotate(180deg);
 }
 
