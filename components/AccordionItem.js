@@ -13,8 +13,10 @@ export class AccordionItem extends Component {
     buttonEl.addEventListener('click', () => {
       if (!isOpen) {
         firstChild.classList.add('open');
+        buttonEl.setAttribute('aria-expanded', 'true');
       } else {
         firstChild.classList.remove('open');
+        buttonEl.setAttribute('aria-expanded', 'false');
       }
 
       isOpen = !isOpen;
@@ -24,7 +26,7 @@ export class AccordionItem extends Component {
   template({ title, content }) {
     return `
 <article>
-  <button class="trigger">
+  <button aria-controls="content" aria-expanded="false" class="trigger">
     <slot name="title">
       <h2 class="title">${title}</h2>
     </slot>
@@ -33,7 +35,7 @@ export class AccordionItem extends Component {
     </div>
   </button>
   <div class="content-ctn">
-    <div class="inner-content-ctn">
+    <div id="content" class="inner-content-ctn">
       <slot name="content">
         <p class="content">${content}</p>
       </slot>
