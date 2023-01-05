@@ -37,6 +37,7 @@ export class AppComponent extends HTMLElement {
         ::part(title) {
             font-family: var(--font-family);
             font-size: var(--font-size-m);
+            font-weight: normal;
             color: var(--color-danger);
             margin: 0;
           }

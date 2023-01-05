@@ -6,12 +6,18 @@
   --font-size-l: 32px;
 
   /* Color palette */
-  --color-palette-black: #101010;
+  --color-palette-black: #272629;
+  --color-palette-gray: #585454;
   --color-palette-red: #cb3434e9;
+  --color-palette-green: #49bd49;
+  --color-palette-blue: #6161c2;
 
   /* Semantic colors */
   --color-title: var(--color-palette-black);
+  --color-text: var(--color-palette-gray);
   --color-danger: var(--color-palette-red);
+  --color-success: var(--color-palette-green);
+  --color-action: var(--color-palette-blue);
 
   /* Animation */
   --anim-duration-fast: 0.1s;

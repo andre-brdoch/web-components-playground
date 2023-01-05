@@ -12,12 +12,15 @@ export class AccordionItem extends HTMLElement {
   }
 
   render() {
+    const svgNamespace = 'http://www.w3.org/2000/svg';
+
     const element = document.createElement('article');
     const buttonEl = document.createElement('button');
     const titleEl = document.createElement('h2');
     const contentCtnEl = document.createElement('div');
     const contentInnerCtnEl = document.createElement('div');
     const contentEl = document.createElement('p');
+    const chevron = document.createElementNS(svgNamespace, 'svg');
 
     buttonEl.classList.add('trigger');
     buttonEl.addEventListener('click', () => {
@@ -53,6 +56,17 @@ export class AccordionItem extends HTMLElement {
     }
     contentEl.classList.add('content');
 
+    chevron.classList.add('chevron');
+    chevron.setAttribute('viewBox', '0 0 24 24');
+    chevron.setAttribute('xmlns', svgNamespace);
+    const path = document.createElementNS(svgNamespace, 'path');
+    path.setAttribute(
+      'd',
+      'M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z'
+    );
+    chevron.appendChild(path);
+    buttonEl.appendChild(chevron);
+
     element.appendChild(buttonEl);
     element.appendChild(contentCtnEl);
 
@@ -64,12 +78,15 @@ export class AccordionItem extends HTMLElement {
     style.innerHTML = `
         .trigger {
             appearance: none;
-            display: block;
             border: none;
             padding: 0;
             background: transparent;
             width: 100%;
             text-align: left;
+
+            display: grid;
+            grid-template-columns: 1fr 3rem;
+            align-items: center;
             cursor: pointer;
         }
 
@@ -89,10 +106,21 @@ export class AccordionItem extends HTMLElement {
         .inner-content-ctn {
             min-height: 0;
         }
+
+        .chevron {
+            fill: var(--color-title);
+            transition: all var(--anim-duration-medium) ease-out;
+            transition-property: fill, transform;
+        }
+        .open .chevron {
+            fill: var(--color-action);
+            transform: rotate(180deg);
+        }
         
         .title,
         .content {
             font-family: var(--font-family);
+            font-weight: normal;
             margin: 0;
         }
         
@@ -103,7 +131,7 @@ export class AccordionItem extends HTMLElement {
         
         .content {
             font-size: var(--font-size-m);
-            color: var(--color-title);
+            color: var(--color-text);
         }
 `;
     return style;
