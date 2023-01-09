@@ -32,7 +32,7 @@ export class AppComponent extends Component {
   padding: var(--space-l);
 }
 
-.text {
+.title {
     font-family: var(--font-family);
     font-size: var(--font-size-m);
     font-weight: normal;
@@ -40,7 +40,7 @@ export class AppComponent extends Component {
     margin: 0;
 }
 
-.title {
+.text {
     font-family: var(--font-family);
     font-size: var(--font-size-s);
     color: var(--color-danger);

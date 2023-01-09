@@ -6,10 +6,7 @@ export class AccordionList extends Component {
   }
 
   connectedCallback() {
-    const childItems = this.shadowRoot
-      .querySelector('slot')
-      .assignedNodes()
-      .filter((node) => node.tagName === 'ACCORDION-ITEM');
+    const childItems = this.getSlots().default ?? [];
 
     childItems.forEach((item) => {
       item.addEventListener('accordion-open', (e) => {

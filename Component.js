@@ -34,15 +34,20 @@ export class Component extends HTMLElement {
     return '';
   }
 
-  /** Returns the filled slot contents */
+  /** Returns the filled slot contents by name. */
   getSlots() {
-    return [...this.querySelectorAll('[slot]')].reduce(
-      (result, node) => ({
-        ...result,
-        [node.getAttribute('slot')]: node,
-      }),
-      {}
-    );
+    return [...this.children].reduce((result, node) => {
+      const newResult = { ...result };
+      const slotName = node.getAttribute('slot');
+      if (slotName) {
+        newResult[slotName] = node;
+      } else if (!('default' in newResult)) {
+        newResult.default = [node];
+      } else {
+        newResult.default.push(node);
+      }
+      return newResult;
+    }, {});
   }
 
   /** Converts `data-` attributes to props */
