@@ -7,6 +7,7 @@ import { IconSubDirectory } from './components/IconSubDirectory.js';
 import { IconComponent } from './components/IconComponent.js';
 import { IconHtml } from './components/IconHtml.js';
 import { IconShadow } from './components/IconShadow.js';
+import { DemoBox } from './components/DemoBox.js';
 
 customElements.define('app-component', AppComponent);
 customElements.define('accordion-list', AccordionList);
@@ -17,3 +18,4 @@ customElements.define('icon-component', IconComponent);
 customElements.define('icon-html', IconHtml);
 customElements.define('icon-shadow', IconShadow);
 customElements.define('icon-sub-directory', IconSubDirectory);
+customElements.define('demo-box', DemoBox);

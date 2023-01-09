@@ -134,11 +134,13 @@ export class AccordionItem extends Component {
 
 .title {
     font-size: var(--font-size-m);
+    line-height: 1.2;
     color: var(--color-title);
-}
-
-.content {
+  }
+  
+  .content {
     font-size: var(--font-size-s);
+    line-height: 1.6;
     color: var(--color-text);
 }
 `;

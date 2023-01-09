@@ -1,4 +1,5 @@
 import { Component } from '../Component.js';
+import { escapeHtml } from '../utils.js';
 
 export class AppComponent extends Component {
   constructor() {
@@ -6,21 +7,80 @@ export class AppComponent extends Component {
   }
 
   template() {
-    return `
-<div class="container">
-  <accordion-list>
-    <accordion-item data-title="Via attributes" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua">
-      <icon-sub-directory slot="icon"></icon-sub-directory>
+    const snippets = [
+      {
+        title: 'Using Slots',
+        code: `
+<accordion-list>
+    <accordion-item>
+        <h3 slot="title" class="title">Custom Elements</h3>
+        <div slot="content">
+            <p class="text">APIs to define new HTML elements.</p>
+            <p class="text">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements" target="_blank">Learn more</a>
+            </p>
+        </div>
+        <icon-component slot="icon" />
     </accordion-item>
 
     <accordion-item>
-      <icon-code slot="icon"></icon-code>
-      <h3 slot="title" class="title">Created via <i>slot</i></h3>
-      <p slot="content" class="text">Some content <b>created via slot</b></p>
+        <h3 slot="title" class="title">Shadow DOM</h3>
+        <div slot="content">
+            <p class="text">Encapsulated DOM and styling, with composition</p>
+            <img src="/images/shadowdom.svg" alt="shadow dom" />
+        </div>
+        <icon-shadow slot="icon" />
     </accordion-item>
 
-    <accordion-item data-title="No icon" data-content="Icon can also be left out."></accordion-item>
-  </accordion-list>
+    <accordion-item 
+        data-title="HTML Templates" 
+        data-content="HTML fragments that are not rendered, but stored until instantiated via JavaScript"
+    >
+        <icon-html slot="icon" />
+    </accordion-item>
+</accordion-list>`,
+      },
+      {
+        title: 'Using data-attributes',
+        code: `
+<accordion-list>
+    <accordion-item 
+        data-title="Custom Elements" 
+        data-content="APIs to define new HTML elements"
+    >
+        <icon-component slot="icon" />
+    </accordion-item>
+
+    <accordion-item 
+        data-title="Shadow DOM" 
+        data-content="Encapsulated DOM and styling, with composition"
+    >
+        <icon-shadow slot="icon" />
+    </accordion-item>
+
+    <accordion-item 
+        data-title="HTML Templates" 
+        data-content="HTML fragments that are not rendered, but stored until instantiated via JavaScript"
+    >
+        <icon-html slot="icon" />
+    </accordion-item>
+</accordion-list>`,
+      },
+    ];
+
+    return `
+<div class="container">
+    ${snippets
+      .map(
+        (snippet) => `
+        <demo-box data-title="${snippet.title}" data-code="${encodeURIComponent(
+          snippet.code
+        )}">
+          ${snippet.code}
+        </demo-box>
+    `
+      )
+      .join('')}
 </div>
     `;
   }
@@ -28,23 +88,41 @@ export class AppComponent extends Component {
   css() {
     return `
 .container {
-  max-width: 30rem;
+  max-width: 90rem;
   padding: var(--space-l);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-m);
 }
 
 .title {
     font-family: var(--font-family);
     font-size: var(--font-size-m);
     font-weight: normal;
-    color: var(--color-danger);
+    line-height: 1.2;
+    color: var(--color-title);
     margin: 0;
 }
 
 .text {
     font-family: var(--font-family);
     font-size: var(--font-size-s);
-    color: var(--color-danger);
+    line-height: 1.6;
+    color: var(--color-text);
     margin: 0;
+}
+
+.text a {
+    color: var(--color-action);
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+}
+
+img:not(:first-child) {
+  margin-top: var(--space-m);
 }
 `;
   }

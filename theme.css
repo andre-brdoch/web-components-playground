@@ -3,6 +3,7 @@
 :root {
   /* Typography */
   --font-family: 'Poppins', sans-serif;
+  --font-size-xs: 12px;
   --font-size-s: 16px;
   --font-size-m: 20px;
   --font-size-l: 32px;
