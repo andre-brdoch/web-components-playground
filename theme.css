@@ -8,8 +8,10 @@
   --font-size-l: 32px;
 
   /* Color palette */
+  --color-palette-white: #ffffff;
   --color-palette-black: #272629;
   --color-palette-gray: #585454;
+  --color-palette-light-gray: #c4baba;
   --color-palette-red: #cb3434e9;
   --color-palette-green: #49bd49;
   --color-palette-blue: #6161c2;
@@ -20,6 +22,7 @@
   --color-danger: var(--color-palette-red);
   --color-success: var(--color-palette-green);
   --color-action: var(--color-palette-blue);
+  --color-border: var(--color-palette-light-gray);
 
   /* Animation */
   --anim-duration-fast: 0.1s;
