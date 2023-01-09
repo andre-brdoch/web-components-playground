@@ -5,22 +5,43 @@ export class AccordionItem extends Component {
     super();
   }
 
+  _isOpen = false;
+
+  open = () => {
+    this._changeOpenState(true);
+  };
+
+  close = () => {
+    this._changeOpenState(false);
+  };
+
+  toggle = () => {
+    if (this._isOpen) {
+      this.close();
+    } else {
+      this.open();
+    }
+  };
+
+  _changeOpenState(isOpen) {
+    this.shadowRoot.firstChild.classList[isOpen ? 'add' : 'remove']('open');
+    this.shadowRoot
+      .querySelector('button')
+      .setAttribute('aria-expanded', isOpen);
+    this._isOpen = isOpen;
+    const event = new CustomEvent(`accordion-${isOpen ? 'open' : 'close'}`, {
+      composed: true,
+      detail: this,
+    });
+    this.dispatchEvent(event);
+  }
+
   connectedCallback() {
     const buttonEl = this.shadowRoot.querySelector('button');
     let isOpen = false;
     const firstChild = this.shadowRoot.firstChild;
 
-    buttonEl.addEventListener('click', () => {
-      if (!isOpen) {
-        firstChild.classList.add('open');
-        buttonEl.setAttribute('aria-expanded', 'true');
-      } else {
-        firstChild.classList.remove('open');
-        buttonEl.setAttribute('aria-expanded', 'false');
-      }
-
-      isOpen = !isOpen;
-    });
+    buttonEl.addEventListener('click', this.toggle);
   }
 
   template({ title, content }) {
