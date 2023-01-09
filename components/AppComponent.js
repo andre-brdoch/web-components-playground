@@ -29,7 +29,7 @@ export class AppComponent extends Component {
     return `
 .container {
   max-width: 30rem;
-  padding: 2rem;
+  padding: var(--space-l);
 }
 
 .text {

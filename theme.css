@@ -24,6 +24,14 @@
   --color-action: var(--color-palette-blue);
   --color-border: var(--color-palette-light-gray);
 
+  /* Space */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-s: 12px;
+  --space-m: 20px;
+  --space-l: 32px;
+  --space-xl: 52px;
+
   /* Animation */
   --anim-duration-fast: 0.1s;
   --anim-duration-medium: 0.25s;

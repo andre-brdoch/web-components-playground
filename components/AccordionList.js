@@ -37,14 +37,14 @@ export class AccordionList extends Component {
     background: var(--color-palette-white);
     border: 2px solid var(--color-border);
     border-radius: 4px;
-    padding: 1rem 0.5rem;
+    padding: var(--space-m) var(--space-s);
     overflow: hidden;
-    box-shadow: 0.5rem 0.5rem 2rem 0 rgb(0 0 0 / 7%);
+    box-shadow: var(--space-s) var(--space-s) var(--space-l) 0 rgb(0 0 0 / 7%);
 }
 
 ::slotted(:not(:last-child)) {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
+    padding-bottom: var(--space-s);
+    margin-bottom: var(--space-s);
     border-bottom: 2px solid var(--color-border);
 }
     `;

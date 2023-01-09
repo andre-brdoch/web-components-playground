@@ -82,14 +82,14 @@ export class AccordionItem extends Component {
     text-align: left;
 
     display: grid;
-    grid-template-columns: 1fr 2rem;
-    gap: 1rem;
+    grid-template-columns: 1fr var(--space-l);
+    gap: var(--space-m);
     align-items: center;
     cursor: pointer;
 }
 
 .has-icon .trigger {
-    grid-template-columns: 2rem 1fr 2rem;
+    grid-template-columns: var(--space-l) 1fr var(--space-l);
 }
 
 .content-ctn {
@@ -111,7 +111,7 @@ export class AccordionItem extends Component {
   }
   
 .has-icon .inner-content-ctn {
-    padding-left: 3rem;
+    padding-left: var(--space-xl);
 }
 
 .chevron {
