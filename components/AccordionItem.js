@@ -108,6 +108,7 @@ export class AccordionItem extends Component {
 
 .inner-content-ctn {
     min-height: 0;
+    min-width: 0;
   }
   
 .has-icon .inner-content-ctn {

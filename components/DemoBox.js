@@ -11,7 +11,9 @@ export class DemoBox extends Component {
     <figcaption class="title">${title}</figcaption>
     <slot></slot>
 
-    <code-block class="code" data-code="${code}" />
+    <accordion-item data-title="See code">
+        <code-block slot="content" class="code" data-code="${code}" />
+    </accordion-item>
 </figure>
     `;
   }
@@ -41,6 +43,11 @@ export class DemoBox extends Component {
     font-weight: normal;
     color: var(--color-title);
     margin: 0;
+}
+
+.code {
+    max-width: 100%;
+    min-width: 0;
 }
     `;
   }

@@ -100,6 +100,7 @@ export class AppComponent extends Component {
     return `
 .root {
   background-color: var(--color-palette-gray-200);
+  min-height: 100vh;
 }
 
 .container {
@@ -108,12 +109,6 @@ export class AppComponent extends Component {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-m);
-  align-items: stretch;
-}
-
-/* Stretch items */
-.container > * {
-  display: grid;
   align-items: stretch;
 }
 
