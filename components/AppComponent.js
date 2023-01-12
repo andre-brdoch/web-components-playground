@@ -10,6 +10,9 @@ export class AppComponent extends Component {
     const snippets = [
       {
         title: 'Using Slots',
+        content: `<div slot="content">
+            <text-component>TBD</text-component>
+        </div>`,
         code: `<accordion-list>
     <accordion-item>
         <title-component slot="title" data-as="h3">Custom Elements</title-component>
@@ -49,6 +52,9 @@ export class AppComponent extends Component {
       },
       {
         title: 'Using data-attributes',
+        content: `<div slot="content">
+            <text-component>TBD</text-component>
+        </div>`,
         code: `<accordion-list>
     <accordion-item 
         data-title="Custom Elements" 
@@ -83,9 +89,7 @@ export class AppComponent extends Component {
           <demo-box data-title="${
             snippet.title
           }" data-code="${encodeURIComponent(snippet.code)}">
-              <div slot="content">
-                  <p>Hello world</p>
-              </div>
+              ${snippet.content ?? ''}
             
               ${snippet.code}
           </demo-box>
@@ -108,9 +112,8 @@ export class AppComponent extends Component {
   max-width: 90rem;
   padding: var(--space-l);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-m);
-  align-items: stretch;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
 }
 
 a {
