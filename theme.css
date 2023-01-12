@@ -13,20 +13,19 @@
   --color-palette-white: #ffffff;
   --color-palette-black: #272629;
   --color-palette-gray-200: #f3eeee;
-  --color-palette-gray: #585454;
-  --color-palette-light-gray: #c4baba;
-  --color-palette-super-light-gray: #f1ecec;
+  --color-palette-gray-400: #c4baba;
+  --color-palette-gray-800: #585454;
   --color-palette-red: #cb3434e9;
   --color-palette-green: #49bd49;
   --color-palette-blue: #6161c2;
 
   /* Semantic colors */
   --color-title: var(--color-palette-black);
-  --color-text: var(--color-palette-gray);
+  --color-text: var(--color-palette-gray-800);
   --color-danger: var(--color-palette-red);
   --color-success: var(--color-palette-green);
   --color-action: var(--color-palette-blue);
-  --color-border: var(--color-palette-light-gray);
+  --color-border: var(--color-palette-gray-400);
 
   /* Space */
   --space-xxs: 4px;
