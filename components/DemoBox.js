@@ -14,16 +14,12 @@ export class DemoBox extends Component {
     </div>
     
     <figure class="component-wrapper">
-        <title-component data-as="figcaption" data-size="s">Rendered component:</title-component>
+        <title-component data-as="figcaption">Rendered component:</title-component>
         <slot></slot>
-    </figure>
-
-
-    <div class="code-wrapper">
         <accordion-item data-title="See code">
             <code-block slot="content" class="code" data-code="${code}" />
         </accordion-item>
-    <div>
+    </figure>
 </section>
     `;
   }
@@ -55,7 +51,7 @@ export class DemoBox extends Component {
 
 .component-wrapper {
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     gap: var(--space-m);
     margin: 0;
 }
