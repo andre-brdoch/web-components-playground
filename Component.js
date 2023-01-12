@@ -22,6 +22,8 @@ export class Component extends HTMLElement {
       .replace(/[\s\n\t]*$/, '');
 
     target.innerHTML = combinedTrimmed;
+
+    this._bindCustomInlineEvents();
   }
 
   /** Returns the components innerHTML contents. */
@@ -68,5 +70,17 @@ export class Component extends HTMLElement {
         [match[1]]: val,
       };
     }, {});
+  }
+
+  _bindCustomInlineEvents() {
+    [...this.attributes]
+      .filter((attr) => attr.nodeName.startsWith('on-'))
+      .forEach((attr) => {
+        const eventName = attr.nodeName.split(/^on-/)[1];
+        const cb = eval(attr.nodeValue);
+        if (typeof cb === 'function') {
+          this.addEventListener(eventName, cb);
+        }
+      });
   }
 }
