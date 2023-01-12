@@ -19,11 +19,14 @@ export class DemoBox extends Component {
   css() {
     return `
 .demo {
-    background: var(--color-palette-light-gray);
+    background: var(--color-palette-white);
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
     padding: var(--space-m);
     margin: 0;
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
     gap: var(--space-m);
     align-items: start;
 }

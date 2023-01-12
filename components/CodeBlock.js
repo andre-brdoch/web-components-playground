@@ -20,9 +20,11 @@ export class CodeBlock extends Component {
     display: block;
     max-width: 100%;
     min-width: 0;
-    background: var(--color-palette-super-light-gray);
+    background: var(--color-palette-gray-200);
+    border-radius: 4px;
     padding: var(--space-m);
     overflow-x: auto;
+    border: 2px solid var(--color-border);
 }
 
 .code {

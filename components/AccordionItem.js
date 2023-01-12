@@ -111,7 +111,7 @@ export class AccordionItem extends Component {
   }
   
 .has-icon .inner-content-ctn {
-    padding-left: var(--space-xl);
+    padding: 0 var(--space-xl);
 }
 
 .chevron {

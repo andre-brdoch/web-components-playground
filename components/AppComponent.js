@@ -78,30 +78,42 @@ export class AppComponent extends Component {
     ];
 
     return `
-<div class="container">
-    ${snippets
-      .map(
-        (snippet) => `
-        <demo-box data-title="${snippet.title}" data-code="${encodeURIComponent(
-          snippet.code
-        )}">
-          ${snippet.code}
-        </demo-box>
-    `
-      )
-      .join('')}
-</div>
+<main class="root">
+  <div class="container">
+      ${snippets
+        .map(
+          (snippet) => `
+          <demo-box data-title="${
+            snippet.title
+          }" data-code="${encodeURIComponent(snippet.code)}">
+            ${snippet.code}
+          </demo-box>
+      `
+        )
+        .join('')}
+  </div>
+</main>
     `;
   }
 
   css() {
     return `
+.root {
+  background-color: var(--color-palette-gray-200);
+}
+
 .container {
   max-width: 90rem;
   padding: var(--space-l);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-m);
+  align-items: stretch;
+}
+
+/* Stretch items */
+.container > * {
+  display: grid;
   align-items: stretch;
 }
 
