@@ -6,7 +6,11 @@ export class AccordionList extends Component {
   }
 
   connectedCallback() {
-    const childItems = this.getSlots().default ?? [];
+    const childItems =
+      // if filled via slot:
+      this.getSlots().default ??
+      // if filled via `items` prop:
+      Array.from(this.shadowRoot.querySelectorAll('accordion-item'));
 
     childItems.forEach((item) => {
       item.addEventListener('accordion-open', (e) => {
@@ -18,10 +22,19 @@ export class AccordionList extends Component {
     });
   }
 
-  template() {
+  template({ items = [], num }) {
     return `
 <div class="list">
-    <slot></slot>
+    <slot>
+      ${items
+        .map(
+          (item) =>
+            `<accordion-item data-title="${item.title ?? ''}" data-content="${
+              item.content ?? ''
+            }"></accordion-item>`
+        )
+        .join('')}
+    </slot>
 </div>
     `;
   }

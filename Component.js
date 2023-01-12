@@ -55,9 +55,17 @@ export class Component extends HTMLElement {
     return [...this.attributes].reduce((result, attr) => {
       const match = attr.nodeName.match(/data-(.*)/);
       if (!match || match.length < 2) return result;
+      let val;
+      try {
+        // attempt to parse objects, arrays, booleans, numbers:
+        val = JSON.parse(attr.nodeValue);
+      } catch (err) {
+        // no json, use as string
+        val = attr.nodeValue;
+      }
       return {
         ...result,
-        [match[1]]: attr.nodeValue,
+        [match[1]]: val,
       };
     }, {});
   }
