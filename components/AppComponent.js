@@ -155,6 +155,46 @@ el.someProperty = { test: true };`)}"></code-block>
     )}"
 ></accordion-list>`,
       },
+      {
+        title: 'Event handeling',
+        content: `<div slot="content" class="text-stack">
+            <text-component>
+                Our components can communicate with the outer world by dispatching
+                <a href="https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events" target="_blank">
+                    Custom Events</a>.
+            </text-component>
+            <text-component>
+                To be able to pierce through the shadow-DOM boundaries, it is important to set the
+                <code>composed</code> option to <code>true</code>.
+            </text-component>
+            <code-block data-code="${escapeHtml(
+              `this.dispatchEvent(new CustomEvent('some-event', {
+    composed: true,
+    details: 'some data for the outer world',
+}));`
+            )}"></code-block>
+            <text-component>
+                We can then listen to our custom events:
+            </text-component>
+            <code-block data-code="${escapeHtml(
+              `document.querySelector('some-component').addEventListener('some-event', () => {});`
+            )}"></code-block>
+            <text-component>
+                Or via <a href="https://github.com/andre-brdoch/web-components-playground/blob/0b7043ea563378b90ec73bd4e37246146f06600c/Component.js#L75" target="_blank">inline listeners</a>:
+            </text-component>
+            <code-block data-code="${escapeHtml(
+              `<some-component on-some-event="() => {}"></some-component>`
+            )}"></code-block>
+        </div>`,
+        code: `<div>
+    <accordion-item
+        data-title="Triggers events"
+        data-content="Hello world"
+        on-accordion-open="() => alert('Opened the accordion')"
+        on-accordion-close="() => alert('Closed the accordion')"
+      ></accordion-item>
+</div>`,
+      },
     ];
 
     return `
