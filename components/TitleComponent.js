@@ -15,8 +15,6 @@ export class TitleComponent extends Component {
 
   css() {
     return `
-
-
 .title {
     font-family: var(--font-family);
     line-height: 1.2;

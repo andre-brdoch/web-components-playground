@@ -63,7 +63,7 @@ export class AccordionItem extends Component {
   <div class="content-ctn">
     <div id="content" class="inner-content-ctn">
       <slot name="content">
-        <p class="content">${content}</p>
+        <text-component>${content}</text-component>
       </slot>
     </div>
   </div>
@@ -124,15 +124,6 @@ export class AccordionItem extends Component {
 .open .chevron {
     color: var(--color-action);
     transform: rotate(180deg);
-}
-
-.content {
-    font-family: var(--font-family);
-    font-weight: normal;
-    margin: 0;
-    font-size: var(--font-size-s);
-    line-height: 1.6;
-    color: var(--color-text);
 }
 `;
   }

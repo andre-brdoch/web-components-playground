@@ -14,10 +14,10 @@ export class AppComponent extends Component {
     <accordion-item>
         <title-component slot="title" data-as="h3">Custom Elements</title-component>
         <div slot="content">
-            <p class="text">APIs to define new HTML elements.</p>
-            <p class="text">
+            <text-component>APIs to define new HTML elements.</text-component>
+            <text-component>
                 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements" target="_blank">Learn more</a>
-            </p>
+            </text-component>
         </div>
         <icon-component slot="icon" />
     </accordion-item>
@@ -25,7 +25,7 @@ export class AppComponent extends Component {
     <accordion-item>
         <title-component slot="title" data-as="h3">Shadow DOM</title-component>
         <div slot="content">
-            <p class="text">Encapsulated DOM and styling, with composition</p>
+            <text-component>Encapsulated DOM and styling, with composition</text-component>
             <img src="/images/shadowdom.svg" alt="shadow dom" />
         </div>
         <icon-shadow slot="icon" />
@@ -34,7 +34,7 @@ export class AppComponent extends Component {
     <accordion-item>
         <title-component slot="title" data-as="h3">HTML Templates</title-component>
         <div slot="content">
-            <p class="text">HTML fragments that are not rendered, but stored until instantiated via JavaScript</p>
+            <text-component>HTML fragments that are not rendered, but stored until instantiated via JavaScript</text-component>
             <code-block data-code="${encodeURIComponent(
               `<template>
     <h1>
@@ -113,15 +113,7 @@ export class AppComponent extends Component {
   align-items: stretch;
 }
 
-.text {
-    font-family: var(--font-family);
-    font-size: var(--font-size-s);
-    line-height: 1.6;
-    color: var(--color-text);
-    margin: 0;
-}
-
-.text a {
+a {
     color: var(--color-action);
 }
 
