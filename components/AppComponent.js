@@ -84,12 +84,13 @@ export class AppComponent extends Component {
               '<accordion-item data-title="Some title"></accordion-item>'
             )}"></code-block>
             <text-component>
-                Within our web component, we can then read all the data-attributes set on the element, and use them for rendering.
+                Within our web component, we can then 
+                <a href="https://github.com/andre-brdoch/web-components-playground/blob/65a39a12466dee81bdaaabdc98147e4726e0af55/Component.js#L30" target="_blank">
+                    read all the data-attributes set on the element</a>, and use them for rendering.
             </text-component>
             <text-component>
                 It is important to note that this technique will <strong>only work on the client side</strong>, 
-                since it relies on browser APIs. Also, since HTML attributes are always string, it is only possible
-                to pass string values this way.
+                since it relies on browser APIs.
             </text-component>
         </div>`,
         code: `<accordion-list>
@@ -114,6 +115,45 @@ export class AppComponent extends Component {
         <icon-html slot="icon" />
     </accordion-item>
 </accordion-list>`,
+      },
+      {
+        title: 'Passing non-string data',
+        content: `<div slot="content" class="text-stack">
+            <text-component>
+                Since all HTML attributes are strings, we can not directly pass non-string data into web components.
+            </text-component>
+            <text-component>
+                However, we can use a trick: We can pass the content as JSON. This allows us to pass objects, arrays, 
+                numbers, and booleans.
+            </text-component>
+            <text-component>
+                We simply have to attempt to <code>JSON.parse()</code> the attribute:
+                <a href="https://github.com/andre-brdoch/web-components-playground/blob/db1249a94a068767e617a6061e08acb16baacffb/Component.js#L60" target="_blank">implementation</a>
+            </text-component>
+            <text-component>
+                Note that this is an <strong>inefficient</strong> way of passing data, 
+                since serialization of large objects can be expensive. The proper way would be
+                to set actual properties (instead of attributes) on the custom element, like so:
+            </text-component>
+            <code-block data-code="${escapeHtml(`const el = document.querySelector('some-component');
+el.someProperty = { test: true };`)}"></code-block>
+            <text-component>
+                However, this would not be possible directly from within the template
+                and is therefore very non-expressive, unless we use a framework like
+                <a href="https://stenciljs.com/" target="_blank">Stencil</a>
+                or <a href="https://lit.dev/" target="_blank">Lit</a>.
+
+            </text-component>
+        </div>`,
+        code: `<accordion-list
+    data-items="${escapeHtml(
+      JSON.stringify([
+        { title: 'A', content: 'Content A' },
+        { title: 'B', content: 'Content B' },
+        { title: 'C', content: 'Content C' },
+      ])
+    )}"
+></accordion-list>`,
       },
     ];
 
