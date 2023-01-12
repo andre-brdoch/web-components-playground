@@ -52,7 +52,7 @@ export class AccordionItem extends Component {
     <slot name="icon"></slot>
   
     <slot name="title">
-      <h2 class="title">${title}</h2>
+      <title-component data-as="h3">${title}</title-component>
     </slot>
 
     <div class="chevron">
@@ -126,20 +126,10 @@ export class AccordionItem extends Component {
     transform: rotate(180deg);
 }
 
-.title,
 .content {
     font-family: var(--font-family);
     font-weight: normal;
     margin: 0;
-}
-
-.title {
-    font-size: var(--font-size-m);
-    line-height: 1.2;
-    color: var(--color-title);
-  }
-  
-  .content {
     font-size: var(--font-size-s);
     line-height: 1.6;
     color: var(--color-text);

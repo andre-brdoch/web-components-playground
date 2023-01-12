@@ -7,14 +7,17 @@ export class DemoBox extends Component {
 
   template({ title, code }) {
     return `
-<figure class="demo">
-    <figcaption class="title">${title}</figcaption>
+<section class="demo">
+    <title-component data-as="h2" data-size="l">${title}</title-component>
+
+    <slot name="content"></slot>
+    
     <slot></slot>
 
     <accordion-item data-title="See code">
         <code-block slot="content" class="code" data-code="${code}" />
     </accordion-item>
-</figure>
+</section>
     `;
   }
 
@@ -35,14 +38,6 @@ export class DemoBox extends Component {
 
 .demo > * {
     min-width: 0;
-}
-
-.title {
-    font-family: var(--font-family);
-    font-size: var(--font-size-m);
-    font-weight: normal;
-    color: var(--color-title);
-    margin: 0;
 }
 
 .code {

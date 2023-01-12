@@ -12,7 +12,7 @@ export class AppComponent extends Component {
         title: 'Using Slots',
         code: `<accordion-list>
     <accordion-item>
-        <h3 slot="title" class="title">Custom Elements</h3>
+        <title-component slot="title" data-as="h3">Custom Elements</title-component>
         <div slot="content">
             <p class="text">APIs to define new HTML elements.</p>
             <p class="text">
@@ -23,7 +23,7 @@ export class AppComponent extends Component {
     </accordion-item>
 
     <accordion-item>
-        <h3 slot="title" class="title">Shadow DOM</h3>
+        <title-component slot="title" data-as="h3">Shadow DOM</title-component>
         <div slot="content">
             <p class="text">Encapsulated DOM and styling, with composition</p>
             <img src="/images/shadowdom.svg" alt="shadow dom" />
@@ -31,11 +31,8 @@ export class AppComponent extends Component {
         <icon-shadow slot="icon" />
     </accordion-item>
 
-    <accordion-item 
-        data-title="HTML Templates" 
-        data-content="HTML fragments that are not rendered, but stored until instantiated via JavaScript"
-    >
-        <h3 slot="title" class="title">HTML Templates</h3>
+    <accordion-item>
+        <title-component slot="title" data-as="h3">HTML Templates</title-component>
         <div slot="content">
             <p class="text">HTML fragments that are not rendered, but stored until instantiated via JavaScript</p>
             <code-block data-code="${encodeURIComponent(
@@ -86,7 +83,11 @@ export class AppComponent extends Component {
           <demo-box data-title="${
             snippet.title
           }" data-code="${encodeURIComponent(snippet.code)}">
-            ${snippet.code}
+              <div slot="content">
+                  <p>Hello world</p>
+              </div>
+            
+              ${snippet.code}
           </demo-box>
       `
         )
@@ -110,15 +111,6 @@ export class AppComponent extends Component {
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-m);
   align-items: stretch;
-}
-
-.title {
-    font-family: var(--font-family);
-    font-size: var(--font-size-m);
-    font-weight: normal;
-    line-height: 1.2;
-    color: var(--color-title);
-    margin: 0;
 }
 
 .text {
