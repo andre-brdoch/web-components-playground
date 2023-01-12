@@ -34,6 +34,16 @@ export class TextComponent extends Component {
 .size-s {
     font-size: var(--font-size-xs);
 }
+
+.text a,
+.text ::slotted(a) {
+    color: var(--color-action);
+}
+
+.text code,
+.text ::slotted(code) {
+    font-family: monospace;
+}
 `;
   }
 }

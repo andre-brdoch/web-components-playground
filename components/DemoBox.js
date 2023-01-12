@@ -55,7 +55,8 @@ export class DemoBox extends Component {
 
 .component-wrapper {
     display: grid;
-    gap: var(--space-s);
+    grid-template-rows: auto 1fr;
+    gap: var(--space-m);
     margin: 0;
 }
 

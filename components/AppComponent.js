@@ -10,8 +10,29 @@ export class AppComponent extends Component {
     const snippets = [
       {
         title: 'Using Slots',
-        content: `<div slot="content">
-            <text-component>TBD</text-component>
+        content: `<div slot="content" class="text-stack">
+            <text-component>We can pass content flexibly by using 
+                <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#adding_flexibility_with_slots" target="_blank">slots</a>.
+            </text-component>
+            <text-component>
+                This behavior is very similar to 
+                    <a href="https://vuejs.org/guide/components/slots.html" target="_blank">Vue slots</a>, or to
+                    <a href="https://reactjs.org/docs/react-api.html#reactchildren" target="_blank">React children</a>,
+
+                as in that they allow us to nest content directly within our web component, 
+                and to use rich content.
+            </text-component>
+            <text-component>
+                Using named slots, we can even target multiple slots in the same component.
+            </text-component>
+            <code-block data-code="${encodeURIComponent(
+              `<accordion-item>
+    <img slot="icon" src="/some-icon.svg" alt="icon" />
+    <text-component slot="content">
+        Slots allow for <strong>rich content</strong>
+    </text-component>
+</accordion-item>`
+            )}"></code-block>
         </div>`,
         code: `<accordion-list>
     <accordion-item>
@@ -52,8 +73,24 @@ export class AppComponent extends Component {
       },
       {
         title: 'Using data-attributes',
-        content: `<div slot="content">
-            <text-component>TBD</text-component>
+        content: `<div slot="content" class="text-stack">
+            <text-component>
+                A less flexible but more convenient way of customizing our web components, is to use data-attributes.
+            </text-component>
+            <text-component>
+                The idea here is imitate a prop-like behavior, that we know from other frontend frameworks:
+            </text-component>
+            <code-block data-code="${encodeURIComponent(
+              '<accordion-item data-title="Some title"></accordion-item>'
+            )}"></code-block>
+            <text-component>
+                Within our web component, we can then read all the data-attributes set on the element, and use them for rendering.
+            </text-component>
+            <text-component>
+                It is important to note that this technique will <strong>only work on the client side</strong>, 
+                since it relies on browser APIs. Also, since HTML attributes are always string, it is only possible
+                to pass string values this way.
+            </text-component>
         </div>`,
         code: `<accordion-list>
     <accordion-item 
@@ -116,8 +153,9 @@ export class AppComponent extends Component {
   gap: var(--space-xl);
 }
 
-a {
-    color: var(--color-action);
+.text-stack {
+  display: grid;
+  gap: var(--space-s);
 }
 
 img {
