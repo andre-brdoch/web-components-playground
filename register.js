@@ -1,4 +1,6 @@
 import { AppComponent } from './components/AppComponent.js';
+import { ContainerComponent } from './components/ContainerComponent.js';
+import { NavBar } from './components/NavBar.js';
 import { TitleComponent } from './components/TitleComponent.js';
 import { TextComponent } from './components/TextComponent.js';
 import { AccordionList } from './components/AccordionList.js';
@@ -13,6 +15,8 @@ import { IconShadow } from './components/IconShadow.js';
 import { DemoBox } from './components/DemoBox.js';
 
 customElements.define('app-component', AppComponent);
+customElements.define('container-component', ContainerComponent);
+customElements.define('nav-bar', NavBar);
 customElements.define('title-component', TitleComponent);
 customElements.define('text-component', TextComponent);
 customElements.define('accordion-list', AccordionList);

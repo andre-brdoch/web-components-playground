@@ -21,6 +21,11 @@ export class TitleComponent extends Component {
     font-weight: normal;
     color: var(--color-title);
     margin: 0;
+    transition: font-size var(--anim-duration-medium) ease-out;
+}
+
+.size-xl {
+    font-size: var(--font-size-xl);
 }
 
 .size-l {

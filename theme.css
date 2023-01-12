@@ -7,6 +7,7 @@
   --font-size-s: 16px;
   --font-size-m: 20px;
   --font-size-l: 32px;
+  --font-size-xl: 52px;
 
   /* Color palette */
   --color-palette-white: #ffffff;
@@ -34,6 +35,7 @@
   --space-m: 20px;
   --space-l: 32px;
   --space-xl: 52px;
+  --space-xxl: 84px;
 
   /* Animation */
   --anim-duration-fast: 0.1s;
