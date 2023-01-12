@@ -10,8 +10,7 @@ export class AppComponent extends Component {
     const snippets = [
       {
         title: 'Using Slots',
-        code: `
-<accordion-list>
+        code: `<accordion-list>
     <accordion-item>
         <h3 slot="title" class="title">Custom Elements</h3>
         <div slot="content">
@@ -36,14 +35,24 @@ export class AppComponent extends Component {
         data-title="HTML Templates" 
         data-content="HTML fragments that are not rendered, but stored until instantiated via JavaScript"
     >
+        <h3 slot="title" class="title">HTML Templates</h3>
+        <div slot="content">
+            <p class="text">HTML fragments that are not rendered, but stored until instantiated via JavaScript</p>
+            <code-block data-code="${encodeURIComponent(
+              `<template>
+    <h1>
+        <slot name="title"></slot>
+    </h1>
+</template>`
+            )}" />
+        </div>
         <icon-html slot="icon" />
     </accordion-item>
 </accordion-list>`,
       },
       {
         title: 'Using data-attributes',
-        code: `
-<accordion-list>
+        code: `<accordion-list>
     <accordion-item 
         data-title="Custom Elements" 
         data-content="APIs to define new HTML elements"
@@ -93,6 +102,7 @@ export class AppComponent extends Component {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-m);
+  align-items: stretch;
 }
 
 .title {
