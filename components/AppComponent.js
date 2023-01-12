@@ -195,6 +195,25 @@ el.someProperty = { test: true };`)}"></code-block>
       ></accordion-item>
 </div>`,
       },
+      {
+        title: 'Scoped Styles',
+        content: `<div slot="content" class="text-stack">
+            <text-component>
+                With web components, we get scoped styles for free, thanks to the <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM" target="_blank">shadow DOM</a>.
+            </text-component>
+            <text-component>
+                We are using 
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties" target="_blank">CSS custom properties</a>
+                to make the common theme accessible, since those pierce through the shadow DOM.
+            </text-component>
+        </div>`,
+        code: `<!-- Example on how to overwrite the theme: -->
+<accordion-list style="--color-title: var(--color-danger); --color-border: var(--color-action);">
+    <accordion-item data-title="Shadow DOM" data-content="Encapsulated DOM and styling, with composition">
+        <icon-shadow slot="icon" />
+    </accordion-item>
+</accordion-list>`,
+      },
     ];
 
     return `

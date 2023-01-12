@@ -80,6 +80,7 @@ export class AccordionItem extends Component {
     background: transparent;
     width: 100%;
     text-align: left;
+    color: var(--color-title);
 
     display: grid;
     grid-template-columns: 1fr var(--space-l);
