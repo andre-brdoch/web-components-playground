@@ -1,16 +1,16 @@
-import { AppComponent } from './components/AppComponent/AppComponent.js';
-import { ContainerComponent } from './components/ContainerComponent/ContainerComponent.js';
-import { NavBar } from './components/NavBar/NavBar.js';
-import { TitleComponent } from './components/TitleComponent/TitleComponent.js';
-import { TextComponent } from './components/TextComponent/TextComponent.js';
-import { AccordionList } from './components/AccordionList/AccordionList.js';
-import { AccordionItem } from './components/AccordionItem/AccordionItem.js';
-import { CodeBlock } from './components/CodeBlock/CodeBlock.js';
+import { AppComponent } from './components/AppComponent.js';
+import { ContainerComponent } from './components/ContainerComponent.js';
+import { NavBar } from './components/NavBar.js';
+import { TitleComponent } from './components/TitleComponent.js';
+import { TextComponent } from './components/TextComponent.js';
+import { AccordionList } from './components/AccordionList.js';
+import { AccordionItem } from './components/AccordionItem.js';
+import { CodeBlock } from './components/CodeBlock.js';
 import { IconChevron } from './components/IconChevron.js';
 import { IconComponent } from './components/IconComponent.js';
 import { IconHtml } from './components/IconHtml.js';
 import { IconShadow } from './components/IconShadow.js';
-import { DemoBox } from './components/DemoBox/DemoBox.js';
+import { DemoBox } from './components/DemoBox.js';
 
 customElements.define('app-component', AppComponent);
 customElements.define('container-component', ContainerComponent);

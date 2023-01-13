@@ -1,8 +1,8 @@
-import { Component } from '../../Component.js';
+import { Component } from '../Component.js';
 
 export class NavBar extends Component {
   constructor() {
-    super({ stylesheet: '/components/NavBar/NavBar.css' });
+    super();
   }
 
   template() {
@@ -26,5 +26,34 @@ export class NavBar extends Component {
       { threshold: [1] }
     );
     observer.observe(this.shadowRoot.firstChild);
+  }
+
+  css() {
+    return `
+nav {
+    height: var(--space-xxl);
+    border-bottom: 2px solid transparent;
+    background: var(--color-palette-gray-200);
+
+    position: sticky;
+    /* Needed for IntersectionObserver to be able to get triggered: */
+    top: -1px;
+    left: 0;
+
+    transition: border-bottom-color var(--anim-duration-medium) ease-out;
+}
+
+.inner {
+    display: grid;
+    grid-template-columns: 1fr var(--space-l);
+    align-items: center;
+    height: var(--space-xxl);
+}
+
+.is-stuck {
+    --font-size-xl: var(--font-size-m);
+    border-bottom-color: var(--color-border);
+}
+`;
   }
 }

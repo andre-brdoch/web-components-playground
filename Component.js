@@ -1,5 +1,5 @@
 export class Component extends HTMLElement {
-  constructor({ hasShadow = true, stylesheet } = {}) {
+  constructor({ hasShadow = true } = {}) {
     super();
 
     const props = this._getPropsFromAttributes();
@@ -14,10 +14,9 @@ export class Component extends HTMLElement {
       target = shadow;
     }
 
-    const styles = stylesheet
-      ? `<link rel="stylesheet" href="${stylesheet}">`
-      : '';
-    const combined = html + styles;
+    const css = this.css();
+    const style = css.length ? `<style>${css}</style>` : '';
+    const combined = html + style;
     const combinedTrimmed = combined
       .replace(/^[\s\n\t]*/, '')
       .replace(/[\s\n\t]*$/, '');
@@ -29,6 +28,11 @@ export class Component extends HTMLElement {
 
   /** Returns the components innerHTML contents. */
   template(props) {
+    return '';
+  }
+
+  /** Returns the components style tags innerHTML contents. */
+  css() {
     return '';
   }
 
