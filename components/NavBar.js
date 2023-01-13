@@ -33,6 +33,7 @@ export class NavBar extends Component {
 nav {
     height: var(--space-xxl);
     border-bottom: 2px solid transparent;
+    background: var(--color-palette-gray-200);
 
     position: sticky;
     /* Needed for IntersectionObserver to be able to get triggered: */
@@ -52,7 +53,6 @@ nav {
 .is-stuck {
     --font-size-xl: var(--font-size-m);
     border-bottom-color: var(--color-border);
-    background: var(--color-palette-gray-200);
 }
 `;
   }

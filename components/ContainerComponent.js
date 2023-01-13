@@ -20,6 +20,12 @@ export class ContainerComponent extends Component {
     padding: 0 var(--space-l);
     margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--space-m);
+    }
+}
 `;
   }
 }

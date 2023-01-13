@@ -218,8 +218,8 @@ el.someProperty = { test: true };`)}"></code-block>
     ];
 
     return `
-<main class="root">
     <nav-bar></nav-bar>
+<main class="root">
 
     <container-component>
         <div class="large-stack">
@@ -258,7 +258,7 @@ el.someProperty = { test: true };`)}"></code-block>
 .root {
   background-color: var(--color-palette-gray-200);
   min-height: 100vh;
-  padding: var(--space-m) 0 var(--space-xl);
+  padding: var(--space-l) 0 var(--space-xl);
 }
 
 .large-stack {
@@ -269,6 +269,10 @@ el.someProperty = { test: true };`)}"></code-block>
 .text-stack {
   display: grid;
   gap: var(--space-s);
+}
+
+.text-stack > * {
+  min-width: 0;
 }
 
 img {

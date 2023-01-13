@@ -25,15 +25,15 @@ export class TitleComponent extends Component {
 }
 
 .size-xl {
-    font-size: var(--font-size-xl);
+    font-size: clamp(var(--font-size-m), 4vw, var(--font-size-xl));
 }
 
 .size-l {
-    font-size: var(--font-size-l);
-}
-
+    font-size: clamp(var(--font-size-m), 4vw, var(--font-size-l));
+  }
+  
 .size-m {
-    font-size: var(--font-size-m);
+    font-size: clamp(var(--font-size-s), 3vw, var(--font-size-m));
 }
 
 .size-s {

@@ -37,6 +37,12 @@ export class DemoBox extends Component {
     gap: var(--space-m);
 }
 
+@media (max-width: 1024px) {
+    .demo {
+        grid-template-columns: 1fr;
+    }
+}
+
 .meta {
     display: grid;
     grid-template-columns: 1fr;

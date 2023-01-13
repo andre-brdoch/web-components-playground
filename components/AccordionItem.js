@@ -89,6 +89,12 @@ export class AccordionItem extends Component {
     cursor: pointer;
 }
 
+@media (max-width: 426px) {
+    .trigger {
+        gap: var(--space-s);
+    }
+}
+
 .has-icon .trigger {
     grid-template-columns: var(--space-l) 1fr var(--space-l);
 }
@@ -110,10 +116,16 @@ export class AccordionItem extends Component {
 .inner-content-ctn {
     min-height: 0;
     min-width: 0;
-  }
+}
   
 .has-icon .inner-content-ctn {
     padding: 0 var(--space-xl);
+}
+
+@media (max-width: 768px) {
+    .has-icon .inner-content-ctn {
+      padding: 0;
+    }
 }
 
 .chevron {
