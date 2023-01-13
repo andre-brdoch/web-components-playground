@@ -40,7 +40,7 @@ export class AppComponent extends Component {
         <div slot="content">
             <text-component>APIs to define new HTML elements.</text-component>
             <text-component>
-                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements" target="_blank">Learn more</a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/customElements" aria-label="About Web Components" target="_blank">Learn more</a>
             </text-component>
         </div>
         <icon-component slot="icon" />
