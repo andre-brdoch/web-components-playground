@@ -1,9 +1,9 @@
-import { Component } from '../Component.js';
-import { escapeHtml } from '../utils.js';
+import { Component } from '../../Component.js';
+import { escapeHtml } from '../../utils.js';
 
 export class AppComponent extends Component {
   constructor() {
-    super();
+    super({ stylesheet: '/components/AppComponent/AppComponent.css' });
   }
 
   template() {
@@ -251,38 +251,5 @@ el.someProperty = { test: true };`)}"></code-block>
     <container-component>
 </main>
     `;
-  }
-
-  css() {
-    return `  
-.root {
-  background-color: var(--color-palette-gray-200);
-  min-height: 100vh;
-  padding: var(--space-l) 0 var(--space-xl);
-}
-
-.large-stack {
-  display: grid;
-  gap: var(--space-xl);
-}
-
-.text-stack {
-  display: grid;
-  gap: var(--space-s);
-}
-
-.text-stack > * {
-  min-width: 0;
-}
-
-img {
-  max-width: 100%;
-  width: 100%;
-}
-
-img:not(:first-child) {
-  margin-top: var(--space-m);
-}
-`;
   }
 }

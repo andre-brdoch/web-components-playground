@@ -1,0 +1,66 @@
+.trigger {
+  appearance: none;
+  border: none;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  color: var(--color-title);
+
+  display: grid;
+  grid-template-columns: 1fr var(--space-l);
+  gap: var(--space-m);
+  align-items: center;
+  cursor: pointer;
+}
+
+@media (max-width: 426px) {
+  .trigger {
+    gap: var(--space-s);
+  }
+}
+
+.has-icon .trigger {
+  grid-template-columns: var(--space-l) 1fr var(--space-l);
+}
+
+.content-ctn {
+  display: grid;
+  transition: grid-template-rows var(--anim-duration-medium),
+    opacity var(--anim-duration-slow);
+  transition-timing-function: ease-out;
+  overflow: hidden;
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+
+.open .content-ctn {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.inner-content-ctn {
+  min-height: 0;
+  min-width: 0;
+}
+
+.has-icon .inner-content-ctn {
+  padding: 0 var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .has-icon .inner-content-ctn {
+    padding: 0;
+  }
+}
+
+.chevron {
+  color: var(--color-title);
+  transition: all var(--anim-duration-medium) ease-out;
+  transition-property: fill, transform;
+}
+
+.open .chevron {
+  color: var(--color-action);
+  transform: rotate(180deg);
+}
